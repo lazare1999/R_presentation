@@ -32,7 +32,7 @@ normalize <- function(x) {
   return ((x - min(x)) / (max(x) - min(x)))
 }
 
-aa = cars[-14]
+aa <- cars[-14]
 
 cars_n <- as.data.frame(lapply(aa), normalize)
 
