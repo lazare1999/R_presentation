@@ -1,4 +1,3 @@
-# setwd("dataset")
 cars <- read.csv("dataset/Cars 1.csv", stringsAsFactors = FALSE)
 
 cars$Engine.Information.Driveline <- factor(cars$Engine.Information.Driveline)
@@ -26,17 +25,6 @@ cars$Identification.Model.Year <- factor(cars$Identification.Model.Year)
 cars$Identification.Model.Year <- as.numeric(cars$Identification.Model.Year)
 
 cars$Identification.Make <- factor(cars$Identification.Make)
-
-# # Normalizing numeric data
-normalize <- function(x) {
-  return ((x - min(x)) / (max(x) - min(x)))
-}
-
-aa <- cars[-14]
-
-cars_n <- as.data.frame(lapply(aa), normalize)
-
-cars <- cbind(cars[14], cars_n)
 
 # Creating training and test data set
 sample_data <- sample.split(cars, SplitRatio = 0.8)
